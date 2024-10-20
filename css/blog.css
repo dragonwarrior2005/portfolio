@@ -1,0 +1,43 @@
+.blog .title {
+    display: flex;
+    justify-content: center;
+}
+
+.blog .title h2 {
+    color: violet;
+    font-size: 60px;
+    position: relative;
+    margin: 20px 0;
+}
+.blog .title h2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: violet;
+    height: 6px;
+    width: 0%;
+    transition: 1s;
+}
+.blog .title h2:hover::after {
+    width: 100%;
+}
+.blog .title h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: violet;
+    height: 6px;
+    width: 0%;
+    transition: 1s;
+}
+.blog .title h2:hover::before {
+    width: 100%;
+}
+.loadings {
+    margin: 100px 0;
+    font-size: 100px;
+    text-align: center;
+    color: darkslategrey;
+}

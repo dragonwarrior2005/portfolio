@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: black;
+    color: white;
+    font-family: "Teko", sans-serif;
+
+}
+.container {
+    width: 90%;
+    margin-inline: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    transition: 1.5s;
+}
+.container:hover {
+    border-color: green;
+}
+a {
+    text-decoration: none;
+    color: rgba(134, 124, 124, 0.973);
+}
+.backtotop {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 70px;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

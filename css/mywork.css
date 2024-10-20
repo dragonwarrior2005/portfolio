@@ -1,0 +1,71 @@
+.work .title {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.work .title h2 {
+    color: rgb(91, 248, 91) !important;
+    font-size: 60px;
+    position: relative;
+}
+.work {
+    color: black;
+    transition: 1s;
+}
+.work:hover {
+    color: rgba(134, 124, 124, 0.973);
+
+}
+.work .title h2::after{
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    left: 0;
+    height: 3px;
+    background-color: rgb(91, 248, 91);
+    width: 0%;
+    transition: 1s;
+}
+.work .title h2:hover::after {
+    width: 30%;
+}
+.work .title h2::before{
+    position: absolute;
+    content: '';
+    top: 0px;
+    right: 0;
+    height: 3px;
+    background-color: rgb(91, 248, 91);
+    width: 0%;
+    transition: 1s;
+}
+.work .title h2:hover::before{
+    width: 60%;
+
+}
+.taycliks {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 100px 0;
+}
+.profilepic {
+    width: 200px;
+
+}
+.profilepic img {
+    width: 100%;
+    border-radius: 100px;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    transition: 1s;
+}
+.profilepic img:hover {
+    border-color:  rgb(91, 248, 91) ;
+}
+.taycliksdescription {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    font-size: 30px;
+}

@@ -1,0 +1,67 @@
+.hero {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+.homedescription {
+    min-width: 600px;
+    max-width: 700px;
+    height: 500px;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+}
+.home-text {
+    width: 100%;
+}
+.home-text p{
+    font-size: 40px;
+    color: rgba(134, 124, 124, 0.973);
+    width: 100%;
+}
+.home-text h1 {
+    font-size: 60px;
+    color: rgba(134, 124, 124, 0.973);
+    padding: 20px 0 0px 0;
+}
+
+.home-text .name {
+    color: rgba(0, 255, 255, 0.589);
+}
+.home-text h1::after {
+    content: "";
+    background-color: white;
+}
+.mypicture {
+    min-width: 300px;
+    max-width: 500px;
+}
+.mypicture img {
+    width: 100%;
+    border-radius: 20px;
+
+}
+.description {
+    transition: 0.5s;
+    min-width: none;
+}
+.description:hover {
+    color: rgba(0, 255, 255, 0.589);
+}
+/* Fade in effect */
+.fadein {
+    opacity: 0;
+}
+/*Responsive*/
+@media (max-width: 600px) {
+    .home-text h1{
+        font-size: 40px;
+        width: 100%;
+    }
+    .home-text p {
+        font-size: 30px;
+        width: 100%;
+    }
+
+}

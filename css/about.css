@@ -1,0 +1,50 @@
+.about {
+    color: black;
+    transition: 1s;
+}
+.about:hover {
+    color: rgba(134, 124, 124, 0.973);
+}
+
+.title {
+    text-align: center;
+}
+.about h2 {
+    position: relative;
+    display: inline-block;
+    padding: 20px 0;
+    font-size: 40px;
+    color: orangered !important;
+}
+.about h2::after{
+    position: absolute;
+    content: '';
+    bottom: 20px;
+    left: 0;
+    height: 3px;
+    background-color: orangered;
+    width: 0%;
+    transition: 1s;
+}
+.about h2::before{
+    position: absolute;
+    content: '';
+    top: 20px;
+    right: 0;
+    height: 3px;
+    background-color: orangered;
+    width: 0%;
+    transition: 1s;
+}
+.about h2:hover::after{
+    width: 60%;
+
+}
+.about h2:hover::before {
+    width: 30%;
+}
+.about p {
+    text-align: center;
+    margin: 100px 0;
+    font-size: 40px;
+}
