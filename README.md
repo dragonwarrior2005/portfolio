@@ -2,7 +2,7 @@
 
 Personal portfolio site: Computer Science (Co-op) student at McMaster University.
 
-Single self-contained `index.html` (HTML, CSS and vanilla JavaScript, no build step). Responsive, with light and dark mode.
+Plain HTML, CSS and vanilla JavaScript, no build step: `index.html` (markup), `style.css` (styles), `src.js` (project and skill data, chip graphic, mobile menu, scroll animations). Responsive, with light and dark mode.
 
 - LinkedIn: https://www.linkedin.com/in/taysir-rahman/
 - GitHub: https://github.com/dragonwarrior2005
