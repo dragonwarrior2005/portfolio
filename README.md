@@ -2,7 +2,7 @@
 
 Personal portfolio site: Computer Science (Co-op) student at McMaster University.
 
-A scroll-driven story in four chapters (Silicon, Browser, Data, People), built with plain HTML, CSS and JavaScript, no build step:
+A scroll-driven story focused on software engineering and data science, in chapters (Focus, Software, Data, Experience), built with plain HTML, CSS and JavaScript, no build step:
 
 - `index.html`: page structure and content
 - `style.css`: styles, responsive layout, light and dark mode

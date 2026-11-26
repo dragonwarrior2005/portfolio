@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taysir Rahman — Portfolio</title>
-<meta name="description" content="Taysir Rahman, Computer Science (Co-op) student at McMaster University: from silicon to screen.">
+<meta name="description" content="Taysir Rahman, Computer Science (Co-op) student at McMaster University focused on software engineering and data science.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -31,10 +31,10 @@
 <nav class="menu" id="menu" aria-label="Chapters" aria-hidden="true">
   <ol>
     <li><a href="#top">Intro</a></li>
-    <li><a href="#silicon">Silicon</a></li>
-    <li><a href="#browser">Browser</a></li>
+    <li><a href="#silicon">Focus</a></li>
+    <li><a href="#browser">Software</a></li>
     <li><a href="#data">Data</a></li>
-    <li><a href="#people">People</a></li>
+    <li><a href="#people">Experience</a></li>
     <li><a href="#next">What's next</a></li>
   </ol>
   <div class="menu-foot">
@@ -45,8 +45,8 @@
 </nav>
 
 <ul class="chapters" aria-hidden="true">
-  <li data-for="top">Intro</li><li data-for="silicon">Silicon</li><li data-for="browser">Browser</li>
-  <li data-for="data">Data</li><li data-for="people">People</li><li data-for="next">Next</li>
+  <li data-for="top">Intro</li><li data-for="silicon">Focus</li><li data-for="browser">Software</li>
+  <li data-for="data">Data</li><li data-for="people">Experience</li><li data-for="next">Next</li>
 </ul>
 
 <main>
@@ -57,15 +57,18 @@
       <div class="fallback" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="kicker">Computer Science (Co-op) student · McMaster University</p>
-        <h1 data-split>From silicon to screen.</h1>
-        <p class="hero-sub">I'm Taysir. I build at every layer, from chip logic to browser games to data analysis. Scroll to see the story.</p>
+        <h1 data-split>I build software and make data make sense.</h1>
+        <p class="hero-sub">I'm Taysir, a Computer Science student focused on software engineering and data science. Scroll to see what I've built.</p>
         <div class="cue"><span></span>Scroll to explore</div>
       </div>
       <div class="sil-copy" id="silicon" data-chapter="silicon">
-        <p class="kicker">Silicon</p>
-        <h2>Down at the transistor level.</h2>
-        <p>At <b>ULKASEMI</b> (May – Aug 2026) I interned in Foundry Technology and Design Services, working on RTL design, SystemVerilog testbenches including eFuse testbench work, and schematic design in Cadence Virtuoso.</p>
-        <ul class="tags"><li>Verilog</li><li>SystemVerilog</li><li>Cadence Virtuoso</li><li>Yosys</li></ul>
+        <p class="kicker">Focus</p>
+        <h2>Two things I'm building toward.</h2>
+        <div class="focus">
+          <div><h3>Software engineering</h3><p>Full-stack web apps, object-oriented Java and Python automation.</p></div>
+          <div><h3>Data science</h3><p>Collecting, cleaning and visualising real datasets with Python and SQL.</p></div>
+        </div>
+        <ul class="tags"><li>Python</li><li>Java</li><li>JavaScript</li><li>SQL</li><li>React</li></ul>
       </div>
     </div>
   </section>
@@ -74,8 +77,8 @@
   <section class="chapter browser" id="browser" data-chapter="browser">
     <div class="wrap two">
       <div class="copy">
-        <p class="kicker reveal">Browser</p>
-        <h2 data-split>In the browser, I build things people can play.</h2>
+        <p class="kicker reveal">Software</p>
+        <h2 data-split>I build full-stack software people actually use.</h2>
         <p class="reveal"><b>Brick Blaster</b> is a full-stack arcade game in plain JavaScript and HTML5 Canvas, with a PHP/MySQL backend for user accounts and a persistent leaderboard.</p>
         <ul class="tags reveal"><li>JavaScript</li><li>HTML5 Canvas</li><li>CSS</li><li>PHP</li><li>MySQL</li></ul>
         <div class="links reveal">
@@ -96,7 +99,7 @@
     <div class="stage data-stage">
       <div class="wrap two">
         <div class="copy">
-          <p class="kicker">Data</p>
+          <p class="kicker">Data science</p>
           <h2>With data, I turn noise into answers.</h2>
           <ol class="steps">
             <li class="on"><b>Collect</b> Scrape and gather real datasets.</li>
@@ -117,20 +120,21 @@
   <!-- PEOPLE -->
   <section class="chapter people" id="people" data-chapter="people">
     <div class="wrap">
-      <p class="kicker reveal">People</p>
-      <h2 data-split>And I like building with people, not just for them.</h2>
+      <p class="kicker reveal">Experience</p>
+      <h2 data-split>Real work, real teams, real responsibility.</h2>
       <div class="stats">
+        <div class="stat reveal"><strong class="word">Co-op intern</strong><span>ULKASEMI, May – Aug 2026: wrote and debugged SystemVerilog testbenches and worked on RTL design in a professional engineering team</span></div>
+        <div class="stat reveal"><strong class="word">Front desk</strong><span>Guest Registration Assistant at McMaster Housing &amp; Conference Services since Aug 2026</span></div>
         <div class="stat reveal"><strong data-count="300">0</strong><span>attendees at the Model UN conference I led as Secretary General</span></div>
         <div class="stat reveal"><strong data-count="80" data-suffix="+">0</strong><span>volunteers on my organising team</span></div>
-        <div class="stat reveal"><strong class="word">Front desk</strong><span>Guest Registration Assistant at McMaster Housing &amp; Conference Services since Aug 2026</span></div>
       </div>
     </div>
   </section>
 
   <!-- SKILLS MARQUEE -->
   <section class="marquee" aria-label="Skills">
-    <div class="track" data-dir="1"><span>Python</span><span>JavaScript</span><span>Java</span><span>SQL</span><span>PHP</span><span>React</span><span>HTML &amp; CSS</span></div>
-    <div class="track alt" data-dir="-1"><span>pandas</span><span>matplotlib</span><span>Web scraping</span><span>MySQL</span><span>Verilog</span><span>SystemVerilog</span><span>Vercel</span></div>
+    <div class="track" data-dir="1"><span>Python</span><span>pandas</span><span>SQL</span><span>Java</span><span>JavaScript</span><span>React</span></div>
+    <div class="track alt" data-dir="-1"><span>matplotlib</span><span>Web scraping</span><span>MySQL</span><span>PHP</span><span>HTML &amp; CSS</span><span>Git</span><span>Vercel</span></div>
   </section>
 
   <!-- NEXT -->

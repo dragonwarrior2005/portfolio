@@ -151,19 +151,33 @@
       }
 
       const blocks = [];
-      const blockMat = new T.MeshStandardMaterial({ color: 0x30353c, roughness: 0.4, metalness: 0.5, emissive: 0xc8641e, emissiveIntensity: 0.04 });
+      const label = text => {
+        const cv = document.createElement('canvas'); cv.width = cv.height = 512;
+        const x = cv.getContext('2d');
+        x.fillStyle = '#30353c'; x.fillRect(0, 0, 512, 512);
+        x.strokeStyle = '#f08a3c'; x.lineWidth = 10; x.strokeRect(14, 14, 484, 484);
+        x.fillStyle = '#f08a3c'; x.font = '700 92px Sora, Inter, system-ui, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle';
+        x.fillText(text, 256, 236);
+        x.fillStyle = 'rgba(240,138,60,.45)';
+        for (let r = 0; r < 3; r++) x.fillRect(120 + r * 30, 330 + r * 34, 272 - r * 60, 12);
+        const tex = new T.CanvasTexture(cv); tex.anisotropy = 4;
+        return tex;
+      };
+      const side = new T.MeshStandardMaterial({ color: 0x30353c, roughness: 0.4, metalness: 0.5 });
+      const topMats = [];
       const edgeMat = new T.LineBasicMaterial({ color: 0xf08a3c, transparent: true, opacity: 0.8 });
-      [[-0.72, -0.72], [0.72, -0.72], [-0.72, 0.72], [0.72, 0.72]].forEach(([x, z], i) => {
+      [['Software', -0.72, -0.72], ['Data', 0.72, -0.72], ['Python', -0.72, 0.72], ['Web', 0.72, 0.72]].forEach(([name, x, z], i) => {
         const g = new T.BoxGeometry(1.2, 0.14, 1.2);
-        const m = new T.Mesh(g, blockMat);
+        const tex = label(name);
+        const top = new T.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: 0xffffff, emissiveIntensity: 0.12, roughness: 0.5, metalness: 0.2 });
+        topMats.push(top);
+        const m = new T.Mesh(g, [side, side, top, side, side, side]);
         m.add(new T.LineSegments(new T.EdgesGeometry(g), edgeMat));
-        for (let r = 0; r < 3; r++) {
-          const strip = new T.Mesh(new T.BoxGeometry(0.85 - r * 0.18, 0.02, 0.06), glow);
-          strip.position.set(-0.12 + r * 0.09, 0.08, -0.3 + r * 0.22); m.add(strip);
-        }
         m.position.set(x, 0.34, z); m.userData = { y: 0.34, i };
         group.add(m); blocks.push(m);
       });
+      const blockMat = { set emissiveIntensity(v) { topMats.forEach(t => { t.emissiveIntensity = v * 0.9; }); } };
+      document.fonts && document.fonts.ready.then(() => topMats.forEach((t, i) => { t.map.image = label(['Software', 'Data', 'Python', 'Web'][i]).image; t.map.needsUpdate = true; }));
 
       const traceMat = new T.MeshStandardMaterial({ color: 0xc8641e, emissive: 0xc8641e, emissiveIntensity: 0.35, metalness: 0.6, roughness: 0.4 });
       [[0, 0.28, -1.45, 0.05, 0.02, 0.2], [0, 0.28, 1.45, 0.05, 0.02, 0.2], [-1.45, 0.28, 0, 0.2, 0.02, 0.05], [1.45, 0.28, 0, 0.2, 0.02, 0.05], [0, 0.29, 0, 0.18, 0.06, 0.18]]
@@ -204,13 +218,13 @@
         const e = ease(clamp(p / 0.85));
         group.rotation.y = (reduce ? 0.5 : time * 0.00012) * (1 - e) + mouse.sx * 0.35 + e * 0.6;
         group.rotation.x = mouse.sy * 0.15;
-        group.position.x = narrow ? 0 : lerp(2.3, -1.3, e);
-        group.position.y = narrow ? lerp(1.7, 1.1, e) : 0;
+        group.position.x = narrow ? 0 : lerp(2.6, -1.3, e);
+        group.position.y = narrow ? lerp(2.15, 1.1, e) : 0;
         blocks.forEach(b => { b.position.y = b.userData.y + ease(clamp((p - 0.1 - b.userData.i * 0.06) / 0.5)) * (0.9 + b.userData.i * 0.15); });
         blockMat.emissiveIntensity = 0.04 + e * 0.12;
         pulses.forEach(s => ringPos(((reduce ? 0 : time * 0.00012) + s.userData.o) % 1, s.position));
         spot.position.set(mouse.sx * 3, 2.4, mouse.sy * 3);
-        camera.position.copy(tmp.copy(camA).lerp(camB, e)).multiplyScalar(narrow ? lerp(2.0, 1.6, e) : lerp(1.1, 1, e));
+        camera.position.copy(tmp.copy(camA).lerp(camB, e)).multiplyScalar(narrow ? lerp(2.2, 1.6, e) : lerp(1.1, 1, e));
         camera.lookAt(0, narrow ? 0.3 : 0, 0);
         renderer.render(scene, camera);
       };
@@ -225,7 +239,7 @@
     for (let i = 0; i < 9; i++) { const p = 80 + i * 30;
       s += `<rect x="${p - 5}" y="40" width="10" height="30" rx="2" fill="#c8641e"/><rect x="${p - 5}" y="330" width="10" height="30" rx="2" fill="#c8641e"/><rect x="40" y="${p - 5}" width="30" height="10" rx="2" fill="#c8641e"/><rect x="330" y="${p - 5}" width="30" height="10" rx="2" fill="#c8641e"/>`; }
     s += '<rect x="64" y="64" width="272" height="272" rx="16" fill="#1c1f23"/><rect x="88" y="88" width="224" height="224" rx="8" fill="#2a2e34"/>';
-    [[100, 100], [206, 100], [100, 206], [206, 206]].forEach(([x, y]) => { s += `<rect x="${x}" y="${y}" width="94" height="94" rx="6" fill="#30353c" stroke="#f08a3c" stroke-opacity=".7"/>`; });
+    [[100, 100, 'Software'], [206, 100, 'Data'], [100, 206, 'Python'], [206, 206, 'Web']].forEach(([x, y, t]) => { s += `<rect x="${x}" y="${y}" width="94" height="94" rx="6" fill="#30353c" stroke="#f08a3c" stroke-opacity=".7"/><text x="${x + 47}" y="${y + 52}" text-anchor="middle" fill="#f08a3c" font-family="Sora, Inter, sans-serif" font-weight="700" font-size="15">${t}</text>`; });
     document.querySelector('.fallback').innerHTML = s + '</svg>';
   }
 
