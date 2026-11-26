@@ -4,98 +4,156 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taysir Rahman — Portfolio</title>
+<meta name="description" content="Taysir Rahman, Computer Science (Co-op) student at McMaster University: from silicon to screen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header>
-  <nav class="nav" aria-label="Main">
-    <a class="brand" href="#top"><i aria-hidden="true"></i>Taysir Rahman</a>
-    <button class="menu" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="links" id="navLinks">
-      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
-    </div>
-  </nav>
+<body class="loading">
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-chip"><i></i></div>
+  <div class="loader-count"><span id="count">0</span>%</div>
+  <div class="loader-name">Taysir Rahman</div>
+</div>
+
+<div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="top">
+  <a class="brand" href="#top" data-magnetic><i aria-hidden="true"></i>Taysir Rahman</a>
+  <div class="top-r">
+    <a class="talk" href="#next" data-magnetic>Let's talk</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" data-magnetic><span class="mb-open">Menu</span><span class="mb-close">Close</span></button>
+  </div>
 </header>
 
-<main id="top">
-  <section class="band">
-    <div class="in hero">
-      <div>
-        <span class="tag">Computer Science student · McMaster University</span>
-        <h1>Hi, I'm Taysir. I build things from the chip up to the browser.</h1>
-        <p class="lede">I'm a <b>Level II Computer Science (Co-op)</b> student at McMaster. I've shipped full-stack web apps, analysed real-world data in Python, and written RTL and testbenches during a hardware design internship.</p>
-        <div class="cta">
-          <a class="btn solid" href="https://www.linkedin.com/in/taysir-rahman/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg>LinkedIn</a>
-          <a class="btn" href="https://github.com/dragonwarrior2005" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg>GitHub</a>
+<nav class="menu" id="menu" aria-label="Chapters" aria-hidden="true">
+  <ol>
+    <li><a href="#top">Intro</a></li>
+    <li><a href="#silicon">Silicon</a></li>
+    <li><a href="#browser">Browser</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#people">People</a></li>
+    <li><a href="#next">What's next</a></li>
+  </ol>
+  <div class="menu-foot">
+    <a href="https://www.linkedin.com/in/taysir-rahman/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://github.com/dragonwarrior2005" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>rahmat25@mcmaster.ca</span>
+  </div>
+</nav>
+
+<ul class="chapters" aria-hidden="true">
+  <li data-for="top">Intro</li><li data-for="silicon">Silicon</li><li data-for="browser">Browser</li>
+  <li data-for="data">Data</li><li data-for="people">People</li><li data-for="next">Next</li>
+</ul>
+
+<main>
+  <!-- INTRO + SILICON: pinned 3D chip -->
+  <section class="hero" id="top" data-chapter="top">
+    <div class="stage">
+      <canvas id="gl" aria-hidden="true"></canvas>
+      <div class="fallback" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="kicker">Computer Science (Co-op) student · McMaster University</p>
+        <h1 data-split>From silicon to screen.</h1>
+        <p class="hero-sub">I'm Taysir. I build at every layer, from chip logic to browser games to data analysis. Scroll to see the story.</p>
+        <div class="cue"><span></span>Scroll to explore</div>
+      </div>
+      <div class="sil-copy" id="silicon" data-chapter="silicon">
+        <p class="kicker">Silicon</p>
+        <h2>Down at the transistor level.</h2>
+        <p>At <b>ULKASEMI</b> (May – Aug 2026) I interned in Foundry Technology and Design Services, working on RTL design, SystemVerilog testbenches including eFuse testbench work, and schematic design in Cadence Virtuoso.</p>
+        <ul class="tags"><li>Verilog</li><li>SystemVerilog</li><li>Cadence Virtuoso</li><li>Yosys</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSER -->
+  <section class="chapter browser" id="browser" data-chapter="browser">
+    <div class="wrap two">
+      <div class="copy">
+        <p class="kicker reveal">Browser</p>
+        <h2 data-split>In the browser, I build things people can play.</h2>
+        <p class="reveal"><b>Brick Blaster</b> is a full-stack arcade game in plain JavaScript and HTML5 Canvas, with a PHP/MySQL backend for user accounts and a persistent leaderboard.</p>
+        <ul class="tags reveal"><li>JavaScript</li><li>HTML5 Canvas</li><li>CSS</li><li>PHP</li><li>MySQL</li></ul>
+        <div class="links reveal">
+          <a class="pill solid" href="https://brick-blaster-two.vercel.app" target="_blank" rel="noopener" data-magnetic data-cursor="Play">Play the real game ↗</a>
+          <a class="pill" href="https://github.com/dragonwarrior2005/Brick-Blaster" target="_blank" rel="noopener" data-magnetic data-cursor="Code">Code ↗</a>
         </div>
       </div>
-      <div class="fig" aria-hidden="true">
-        <svg viewBox="0 0 520 520" id="chip"></svg>
+      <figure class="window reveal" data-cursor="Move">
+        <div class="win-bar"><i></i><i></i><i></i><span>mini-blaster.js</span></div>
+        <canvas id="game" aria-label="Small brick breaker demo"></canvas>
+        <figcaption>A tiny demo inspired by Brick Blaster. Move your mouse or finger over it to take the paddle.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- DATA: pinned scatter to bars -->
+  <section class="data" id="data" data-chapter="data">
+    <div class="stage data-stage">
+      <div class="wrap two">
+        <div class="copy">
+          <p class="kicker">Data</p>
+          <h2>With data, I turn noise into answers.</h2>
+          <ol class="steps">
+            <li class="on"><b>Collect</b> Scrape and gather real datasets.</li>
+            <li><b>Clean</b> Fix gaps, types and duplicates with pandas.</li>
+            <li><b>Visualise</b> Chart the patterns with matplotlib and SQL.</li>
+          </ol>
+          <p class="proj">My analyses cover book prices, the Netflix catalogue and Toronto Bike Share.</p>
+          <a class="pill" href="https://github.com/dragonwarrior2005/data-analysis-projects" target="_blank" rel="noopener" data-magnetic data-cursor="Code">See the projects ↗</a>
+        </div>
+        <figure class="dots-fig">
+          <canvas id="dots" aria-hidden="true"></canvas>
+          <figcaption>Illustration only: scattered points settling into a chart as you scroll.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section class="band alt" id="projects">
-    <div class="in">
-      <h2 class="sec-t">Projects</h2>
-      <p class="sec-s">Completed work from my GitHub, with live demos where they're deployed.</p>
-      <div class="grid" id="projGrid"></div>
-      <p class="note">More on <a href="https://github.com/dragonwarrior2005" target="_blank" rel="noopener">github.com/dragonwarrior2005</a>.</p>
-    </div>
-  </section>
-
-  <section class="band" id="experience">
-    <div class="in">
-      <h2 class="sec-t">Experience</h2>
-      <p class="sec-s">Work alongside my studies.</p>
-      <div class="exp">
-        <article class="job rise">
-          <div class="when">May – Aug 2026</div>
-          <div><h3>Co-op Intern, Foundry Technology and Design Services</h3><div class="org">ULKASEMI</div>
-          <p>Worked on RTL design and SystemVerilog testbenches, including eFuse testbench work, and schematic design in Cadence Virtuoso.</p></div>
-        </article>
-        <article class="job rise">
-          <div class="when">Aug 2026 – present</div>
-          <div><h3>Guest Registration Assistant</h3><div class="org">McMaster Housing &amp; Conference Services</div>
-          <p>Front-desk role registering residents and guests and supporting residence staff.</p></div>
-        </article>
-        <article class="job rise">
-          <div class="when">High school</div>
-          <div><h3>Secretary General, Model United Nations</h3><div class="org">Conference leadership</div>
-          <p>Led a 300-person conference and a team of 80+ volunteers.</p></div>
-        </article>
+  <!-- PEOPLE -->
+  <section class="chapter people" id="people" data-chapter="people">
+    <div class="wrap">
+      <p class="kicker reveal">People</p>
+      <h2 data-split>And I like building with people, not just for them.</h2>
+      <div class="stats">
+        <div class="stat reveal"><strong data-count="300">0</strong><span>attendees at the Model UN conference I led as Secretary General</span></div>
+        <div class="stat reveal"><strong data-count="80" data-suffix="+">0</strong><span>volunteers on my organising team</span></div>
+        <div class="stat reveal"><strong class="word">Front desk</strong><span>Guest Registration Assistant at McMaster Housing &amp; Conference Services since Aug 2026</span></div>
       </div>
     </div>
   </section>
 
-  <section class="band alt" id="skills">
-    <div class="in">
-      <h2 class="sec-t">Skills</h2>
-      <p class="sec-s">Tools I've used in projects, coursework and work.</p>
-      <div class="skills" id="skillGrid"></div>
-    </div>
+  <!-- SKILLS MARQUEE -->
+  <section class="marquee" aria-label="Skills">
+    <div class="track" data-dir="1"><span>Python</span><span>JavaScript</span><span>Java</span><span>SQL</span><span>PHP</span><span>React</span><span>HTML &amp; CSS</span></div>
+    <div class="track alt" data-dir="-1"><span>pandas</span><span>matplotlib</span><span>Web scraping</span><span>MySQL</span><span>Verilog</span><span>SystemVerilog</span><span>Vercel</span></div>
   </section>
 
-  <section class="band contact" id="contact">
-    <div class="in">
-      <div>
-        <h2>Let's talk.</h2>
-        <p>I'm looking for a Summer 2027 co-op work term (starting May 2027) in software engineering, web development or data analysis. Reach out about roles, projects or ideas.</p>
-      </div>
-      <div class="clist">
-        <a href="mailto:rahmat25@mcmaster.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>rahmat25@mcmaster.ca</span></a>
-        <a href="https://www.linkedin.com/in/taysir-rahman/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg><span>linkedin.com/in/taysir-rahman</span></a>
-        <a href="https://github.com/dragonwarrior2005" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg><span>github.com/dragonwarrior2005</span></a>
+  <!-- NEXT -->
+  <section class="next" id="next" data-chapter="next">
+    <div class="wrap">
+      <p class="kicker reveal">What's next</p>
+      <h2 class="big" data-split>Let's build the next chapter.</h2>
+      <p class="reveal next-p">I'm looking for a Summer 2027 co-op work term (starting May 2027) in software engineering, web development or data analysis.</p>
+      <div class="contact reveal">
+        <a class="orb" href="mailto:rahmat25@mcmaster.ca" data-magnetic data-cursor="Email"><span>Say hello</span></a>
+        <ul>
+          <li><a href="mailto:rahmat25@mcmaster.ca">rahmat25@mcmaster.ca</a></li>
+          <li><a href="https://www.linkedin.com/in/taysir-rahman/" target="_blank" rel="noopener">linkedin.com/in/taysir-rahman ↗</a></li>
+          <li><a href="https://github.com/dragonwarrior2005" target="_blank" rel="noopener">github.com/dragonwarrior2005 ↗</a></li>
+        </ul>
       </div>
     </div>
+    <footer>© 2026 Taysir Rahman · Hamilton, Ontario</footer>
   </section>
 </main>
-<footer>© 2026 Taysir Rahman · Hamilton, Ontario</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="src.js"></script>
 </body>
 </html>
